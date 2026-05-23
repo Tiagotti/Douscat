@@ -1,104 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para ti ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:#ffb6c1;
-      font-family:Arial;
-      overflow:hidden;
-      padding:20px;
-      box-sizing:border-box;
+<title>Kiosko ❤️</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff9ecb,#ffd6e8);
+    overflow:hidden;
+    height:100vh;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100vh;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    animation:fade 0.6s ease;
+}
+
+.active{
+    display:flex;
+}
+
+h1{
+    color:white;
+    font-size:32px;
+    margin-bottom:25px;
+    text-shadow:0 3px 10px rgba(0,0,0,0.25);
+}
+
+img{
+    width:260px;
+    max-width:85%;
+    border-radius:20px;
+    margin-bottom:30px;
+    box-shadow:0 0 20px rgba(0,0,0,0.25);
+}
+
+.next{
+    border:none;
+    background:white;
+    color:#ff4d88;
+    padding:15px 28px;
+    border-radius:20px;
+    font-size:20px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.choice{
+    border:none;
+    padding:15px 28px;
+    border-radius:20px;
+    font-size:20px;
+}
+
+#si{
+    background:#ff4d88;
+    color:white;
+}
+
+#no{
+    background:white;
+    color:#ff4d88;
+}
+
+.finalText{
+    font-size:38px;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
     }
 
-    .card{
-      background:white;
-      padding:30px;
-      border-radius:25px;
-      text-align:center;
-      width:100%;
-      max-width:350px;
-      box-shadow:0 0 20px rgba(0,0,0,0.2);
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.hearts{
+    position:absolute;
+    font-size:25px;
+    animation:float 4s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
     }
 
-    h1{
-      font-size:30px;
-      margin-bottom:30px;
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
     }
+}
 
-    .buttons{
-      display:flex;
-      justify-content:center;
-      gap:15px;
-      position:relative;
-    }
-
-    button{
-      border:none;
-      padding:15px 25px;
-      font-size:20px;
-      border-radius:15px;
-      cursor:pointer;
-    }
-
-    #si{
-      background:#ff4d88;
-      color:white;
-    }
-
-    #no{
-      background:#eee;
-      position:fixed;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-<div class="card">
-  <h1>¿Quieres ser mi novia? ❤️</h1>
+<audio id="musicYes" src="si.mp3"></audio>
+<audio id="musicNo" src="no.mp3"></audio>
 
-  <div class="buttons">
-    <button id="si" onclick="aceptar()">Sí</button>
-    <button id="no" onclick="moverNo()">No</button>
-  </div>
+<div class="slide active">
+    <h1>ola ❤️</h1>
+
+    <img src="inicio.gif">
+
+    <button class="next" onclick="nextSlide()">...</button>
 </div>
 
-<script>
+<div class="slide">
+    <h1>weno kiosko estoy re nervioso nose ni que decir</h1>
 
-function aceptar(){
-  document.body.innerHTML = `
-    <div style="
-      text-align:center;
-      font-family:Arial;
-      padding:40px;
-    ">
-      <h1>❤️ SABÍA QUE DIRÍAS QUE SÍ ❤️</h1>
-      <h2>Te quiero muchísimo</h2>
-      <p>Ahora oficialmente eres mi novia 💕</p>
-    </div>
-  `;
-}
+    <button class="next" onclick="nextSlide()">siguiente</button>
+</div>
 
-function moverNo(){
-  const boton = document.getElementById("no");
+<div class="slide">
+    <h1>pero bueno resumido sabes luego que te quiero mucho y lo importante que sos para mi</h1>
 
-  const x = Math.random() * (window.innerWidth - 100);
-  const y = Math.random() * (window.innerHeight - 60);
+    <button class="next" onclick="nextSlide()">siguiente</button>
+</div>
 
-  boton.style.left = x + "px";
-  boton.style.top = y + "px";
-}
-
-</script>
-
-</body>
-</html>
+<div class="slide">
+    <h1>sos la mejor del wor sos unica lgmt</h1
