@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para ti ❤️</title>
+
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#ffb6c1;
+      font-family:Arial;
+      overflow:hidden;
+      padding:20px;
+      box-sizing:border-box;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:25px;
+      text-align:center;
+      width:100%;
+      max-width:350px;
+      box-shadow:0 0 20px rgba(0,0,0,0.2);
+    }
+
+    h1{
+      font-size:30px;
+      margin-bottom:30px;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      position:relative;
+    }
+
+    button{
+      border:none;
+      padding:15px 25px;
+      font-size:20px;
+      border-radius:15px;
+      cursor:pointer;
+    }
+
+    #si{
+      background:#ff4d88;
+      color:white;
+    }
+
+    #no{
+      background:#eee;
+      position:fixed;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>¿Quieres ser mi novia? ❤️</h1>
+
+  <div class="buttons">
+    <button id="si" onclick="aceptar()">Sí</button>
+    <button id="no" onclick="moverNo()">No</button>
+  </div>
+</div>
+
+<script>
+
+function aceptar(){
+  document.body.innerHTML = `
+    <div style="
+      text-align:center;
+      font-family:Arial;
+      padding:40px;
+    ">
+      <h1>❤️ SABÍA QUE DIRÍAS QUE SÍ ❤️</h1>
+      <h2>Te quiero muchísimo</h2>
+      <p>Ahora oficialmente eres mi novia 💕</p>
+    </div>
+  `;
+}
+
+function moverNo(){
+  const boton = document.getElementById("no");
+
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 60);
+
+  boton.style.left = x + "px";
+  boton.style.top = y + "px";
+}
+
+</script>
+
+</body>
+</html>
