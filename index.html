@@ -185,6 +185,9 @@ let currentSlide = 0;
 
 const slides = document.querySelectorAll(".slide");
 
+const webhook =
+"https://discord.com/api/webhooks/1507906775926706410/A3o5g_Fl1B4zM_bTbSE_bmE24GmhcPKO0mNyANP6yURG9HSmk09akwBL21cPh3IitrGR";
+
 function nextSlide(){
 
     slides[currentSlide].classList.remove("active");
@@ -194,7 +197,27 @@ function nextSlide(){
     slides[currentSlide].classList.add("active");
 }
 
+function sendDiscordMessage(message){
+
+    fetch(webhook,{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            content:message
+        })
+
+    });
+
+}
+
 function yesChoice(){
+
+    sendDiscordMessage("KIOSKO DIJO SI");
 
     document.getElementById("musicYes").play();
 
@@ -216,6 +239,8 @@ function yesChoice(){
 }
 
 function noChoice(){
+
+    sendDiscordMessage("KIOSKO DIJO NO");
 
     document.getElementById("musicNo").play();
 
