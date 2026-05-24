@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kiosko ❤️</title>
+<title>Kiosko</title>
 
 <style>
 
@@ -12,7 +12,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
@@ -31,7 +31,7 @@ body{
     align-items:center;
     text-align:center;
     padding:30px;
-    animation:fade 0.6s ease;
+    animation:fade 0.5s ease;
 }
 
 .active{
@@ -41,8 +41,8 @@ body{
 h1{
     color:white;
     font-size:32px;
-    margin-bottom:25px;
     text-shadow:0 3px 10px rgba(0,0,0,0.25);
+    margin-bottom:25px;
 }
 
 img{
@@ -85,10 +85,6 @@ img{
     color:#ff4d88;
 }
 
-.finalText{
-    font-size:38px;
-}
-
 @keyframes fade{
     from{
         opacity:0;
@@ -101,24 +97,6 @@ img{
     }
 }
 
-.hearts{
-    position:absolute;
-    font-size:25px;
-    animation:float 4s linear infinite;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(100vh);
-        opacity:1;
-    }
-
-    to{
-        transform:translateY(-120vh);
-        opacity:0;
-    }
-}
-
 </style>
 </head>
 
@@ -128,7 +106,7 @@ img{
 <audio id="musicNo" src="no.mp3"></audio>
 
 <div class="slide active">
-    <h1>ola ❤️</h1>
+    <h1>ola</h1>
 
     <img src="inicio.gif">
 
@@ -148,4 +126,92 @@ img{
 </div>
 
 <div class="slide">
-    <h1>sos la mejor del wor sos unica lgmt</h1
+    <h1>sos la mejor del wor sos unica lgmt</h1>
+
+    <button class="next" onclick="nextSlide()">siguiente</button>
+</div>
+
+<div class="slide">
+    <h1>asi que</h1>
+
+    <button class="next" onclick="nextSlide()">continuar</button>
+</div>
+
+<div class="slide">
+    <h1>
+        querés ser mi washiturra,
+        jirtopiana,
+        shika,
+        el cho de mi so,
+        el an de mi der,
+        el que de mi so?
+    </h1>
+
+    <div class="buttons">
+
+        <button id="si" class="choice" onclick="yesChoice()">
+            si
+        </button>
+
+        <button id="no" class="choice" onclick="noChoice()">
+            no
+        </button>
+
+    </div>
+</div>
+
+<script>
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".slide");
+
+function nextSlide(){
+
+    slides[currentSlide].classList.remove("active");
+
+    currentSlide++;
+
+    slides[currentSlide].classList.add("active");
+}
+
+function yesChoice(){
+
+    document.getElementById("musicYes").play();
+
+    document.body.innerHTML = `
+
+    <audio autoplay src="si.mp3"></audio>
+
+    <div class="slide active">
+
+        <h1>
+        EEEEEEEEEEEEEEEEEE te quiero mucho mongaaaaider
+        </h1>
+
+    </div>
+
+    `;
+}
+
+function noChoice(){
+
+    document.getElementById("musicNo").play();
+
+    document.body.innerHTML = `
+
+    <audio autoplay src="no.mp3"></audio>
+
+    <div class="slide active">
+
+        <img src="no.jpg">
+
+    </div>
+
+    `;
+}
+
+</script>
+
+</body>
+</html>
