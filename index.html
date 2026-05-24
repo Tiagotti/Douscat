@@ -102,7 +102,6 @@ img{
 
 <body>
 
-<audio id="musicYes" src="si.mp3"></audio>
 <audio id="musicNo" src="no.mp3"></audio>
 
 <div class="slide active">
@@ -219,11 +218,7 @@ function yesChoice(){
 
     sendDiscordMessage("KIOSKO DIJO SI");
 
-    document.getElementById("musicYes").play();
-
     document.body.innerHTML = `
-
-    <audio autoplay src="si.mp3"></audio>
 
     <div class="slide active">
 
